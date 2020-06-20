@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { School, ProgramPercentages, Ethnicity } from './components/index';
 import axios from 'axios';
-import { VictoryPie } from 'victory';
 
 function App() {
   const [schoolData, setSchoolData] = useState(null);
@@ -34,16 +33,17 @@ function App() {
           <>
             <School
               school={schoolData.school}
-              students={schoolData.latest}
               totalStudents={
                 schoolData.latest.student.enrollment.undergrad_12_month +
                 schoolData.latest.student.enrollment.grad_12_month
               }
             />
             <ProgramPercentages
-              programPercentage={schoolData.latest.academics.program_percentage}
+              programPercentages={schoolData.latest.academics.program_percentage}
             />
-            <Ethnicity />
+            <Ethnicity
+              ethnicity={schoolData.latest.student.demographics.race_ethnicity}
+            />
           </>
         )}
       </header>

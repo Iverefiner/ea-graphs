@@ -5,8 +5,10 @@ function School({ school, totalStudents }) {
     <div>
       <h3>{school.name}</h3>
       <a href={school.school_url}>website</a>
-      <p>{school.city}, {school.state} {school.zip}</p>
-      <p>{totalStudents} students enrolled</p>
+      <p>
+        {school.city}, {school.state} {school.zip}
+      </p>
+      <p>{totalStudents.toLocaleString('en')} students enrolled</p>
     </div>
   );
 }

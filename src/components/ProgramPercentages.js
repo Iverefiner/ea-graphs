@@ -1,9 +1,10 @@
 import React from 'react'
+import { VictoryPie } from 'victory';
 
-function ProgramPercentages() {
+function ProgramPercentages({programPercentages}) {
   return (
     <div>
-      
+    {console.log(programPercentages)}
     </div>
   )
 }

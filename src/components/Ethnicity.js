@@ -1,11 +1,8 @@
 import React from 'react'
+import { VictoryPie } from 'victory';
 
-function Ethnicity() {
-  return (
-    <div>
-      
-    </div>
-  )
+function Ethnicity({ethnicity}) {
+  return <div>{console.log(ethnicity)}</div>;
 }
 
 export default Ethnicity
