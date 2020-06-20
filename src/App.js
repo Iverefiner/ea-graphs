@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { School, ProgramPercentages, Ethnicity } from './components/index';
 import axios from 'axios';
 import { VictoryPie } from 'victory';
 
@@ -16,7 +17,7 @@ function App() {
           `https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=${YOUR_API_KEY}`
         )
         .then((res) => {
-          const data = res.data.results[0].school;
+          const data = res.data.results[0];
           setSchoolData(data);
           setLoading(false);
         });
@@ -28,7 +29,23 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {!schoolData ? <p>Loading...</p> : <h1>{schoolData.name}</h1>}
+        {loading && <p>Loading...</p>}
+        {schoolData && (
+          <>
+            <School
+              school={schoolData.school}
+              students={schoolData.latest}
+              totalStudents={
+                schoolData.latest.student.enrollment.undergrad_12_month +
+                schoolData.latest.student.enrollment.grad_12_month
+              }
+            />
+            <ProgramPercentages
+              programPercentage={schoolData.latest.academics.program_percentage}
+            />
+            <Ethnicity />
+          </>
+        )}
       </header>
     </div>
   );
