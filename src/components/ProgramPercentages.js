@@ -33,12 +33,40 @@ function ProgramPercentages({ programPercentages }) {
           height={400}
           data={convertedData}
           innerRadius={68}
-          labelRadius={100}
-          style={{ labels: { fontSize: 5, fill: 'white' } }}
+          labelRadius={160}
+          style={{ labels: { fontSize: 3, fill: 'darkgray' } }}
+          colorScale={[
+            '#F4E900',
+            '#EEE70A',
+            '#E8E513',
+            '#E2E31D',
+            '#DCE127',
+            '#D6DF30',
+            '#D0DD3A',
+            '#CBDB43',
+            '#C5D94D',
+            '#BFD757',
+            '#B9D560',
+            '#B3D36A',
+            '#ADD174',
+            '#A7CE7D',
+            '#A1CC87',
+            '#9BCA91',
+            '#95C89A',
+            '#8FC6A4',
+            '#89C4AE',
+            '#84C2B7',
+            '#7EC0C1',
+            '#78BECA',
+            '#72BCD4',
+            '#6CBADE',
+            '#66B8E7',
+            '#60B6F1',
+          ]}
         />
         <VictoryLabel
           textAnchor='middle'
-          style={{ fontSize: 20 }}
+          style={{ fontSize: 20, fill: 'darkgray' }}
           x={200}
           y={200}
           text='Programs'
