@@ -1,0 +1,52 @@
+import React from 'react'
+import { VictoryPie, VictoryLabel } from 'victory';
+
+function CostGraph({cost}) {
+const convertedData = [];
+
+  // push into array
+  for (let [key, value] of Object.entries(cost)) {
+    if (value) {
+      convertedData.push({ x: `${key}`, y: `${value.toLocaleString('en')}` });
+    }
+  }
+
+console.log(convertedData);
+return (
+  <div className='graph'>
+    <svg viewBox='0 0 400 400'>
+      <VictoryPie
+        standalone={false}
+        width={400}
+        height={400}
+        data={convertedData}
+        innerRadius={68}
+        labelRadius={160}
+        style={{ labels: { fontSize: 4, fill: 'darkgray' } }}
+        labels={({ datum }) => `${datum.x}: $${(datum.y)}`}
+        colorScale={[
+          '#FCB0F3',
+          '#E49BF0',
+          '#CC85EE',
+          '#B470EB',
+          '#9D5BE8',
+          '#8545E5',
+          '#6D30E3',
+          '#551AE0',
+          '#3D05DD',
+        ]}
+      />
+      <VictoryLabel
+        textAnchor='middle'
+        style={{ fontSize: 20, fill: 'darkgray' }}
+        x={200}
+        y={200}
+        text='Cost by Income'
+      />
+    </svg>
+  </div>
+);
+}
+
+export default CostGraph;
+

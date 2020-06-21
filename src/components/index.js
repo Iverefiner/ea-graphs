@@ -1,3 +1,4 @@
 export { default as School } from './School';
-export { default as ProgramPercentages } from './ProgramPercentages';
-export { default as Ethnicity } from './Ethnicity';
+export { default as ProgramPercentagesGraph } from './ProgramPercentagesGraph';
+export { default as EthnicityGraph } from './EthnicityGraph';
+export { default as CostGraph } from './CostGraph';

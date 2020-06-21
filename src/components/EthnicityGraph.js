@@ -1,7 +1,7 @@
 import React from 'react'
 import { VictoryPie, VictoryLabel } from 'victory';
 
-function Ethnicity({ethnicity}) {
+function EthnicityGraph({ethnicity}) {
 const convertedData = [];
 
   // make data strings look pretty
@@ -56,5 +56,5 @@ return (
 );
 }
 
-export default Ethnicity
+export default EthnicityGraph;
 

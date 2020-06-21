@@ -1,7 +1,7 @@
 import React from 'react';
 import { VictoryPie, VictoryLabel } from 'victory';
 
-function ProgramPercentages({ programPercentages }) {
+function ProgramPercentagesGraph({ programPercentages }) {
   const convertedData = [];
 
   // make data strings look pretty
@@ -34,12 +34,12 @@ function ProgramPercentages({ programPercentages }) {
           data={convertedData}
           innerRadius={68}
           labelRadius={160}
-          style={{ labels: { fontSize: 4, fill: 'darkgray', angle: 45 } }}
+          style={{ labels: { fontSize: 4, fill: 'beige', angle: 45 } }}
           labels={({ datum }) => `${datum.x}: ${(datum.y * 100).toFixed(2)}%`}
           colorScale={[
-            '#E4E900',
-            '#EEE70A',
-            '#E8E513',
+            '#FCC44B',
+            '#FCDA58',
+            '#FCEF64',
             '#E2E31D',
             '#DCE127',
             '#D6DF30',
@@ -77,4 +77,4 @@ function ProgramPercentages({ programPercentages }) {
   );
 }
 
-export default ProgramPercentages;
+export default ProgramPercentagesGraph;

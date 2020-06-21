@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { School, ProgramPercentages, Ethnicity } from './components/index';
+import {
+  School,
+  ProgramPercentagesGraph,
+  EthnicityGraph,
+  CostGraph,
+} from './components/index';
 import axios from 'axios';
 
 function App() {
@@ -38,12 +43,15 @@ function App() {
                 schoolData.latest.student.enrollment.grad_12_month
               }
             />
-            <ProgramPercentages
-              programPercentages={schoolData.latest.academics.program_percentage}
+            <ProgramPercentagesGraph
+              programPercentages={
+                schoolData.latest.academics.program_percentage
+              }
             />
-            <Ethnicity
+            <EthnicityGraph
               ethnicity={schoolData.latest.student.demographics.race_ethnicity}
             />
+            <CostGraph cost={schoolData.latest.cost.net_price.public.by_income_level} />
           </>
         )}
       </header>
