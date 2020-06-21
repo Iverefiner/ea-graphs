@@ -30,7 +30,7 @@ return (
         data={convertedData}
         innerRadius={68}
         labelRadius={160}
-        style={{ labels: { fontSize: 5, fill: 'darkgray' } }}
+        style={{ labels: { fontSize: 4, fill: 'darkgray' } }}
         labels={({ datum }) => `${datum.x}: ${(datum.y * 100).toFixed(2)}%`}
         colorScale={[
           '#FCB0F3',

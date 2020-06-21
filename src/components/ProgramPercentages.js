@@ -34,7 +34,7 @@ function ProgramPercentages({ programPercentages }) {
           data={convertedData}
           innerRadius={68}
           labelRadius={160}
-          style={{ labels: { fontSize: 3, fill: 'darkgray' } }}
+          style={{ labels: { fontSize: 4, fill: 'darkgray', angle: 45 } }}
           labels={({ datum }) => `${datum.x}: ${(datum.y * 100).toFixed(2)}%`}
           colorScale={[
             '#E4E900',
