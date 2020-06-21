@@ -31,15 +31,17 @@ return (
         innerRadius={68}
         labelRadius={160}
         style={{ labels: { fontSize: 5, fill: 'darkgray' } }}
+        labels={({ datum }) => `${datum.x}: ${(datum.y * 100).toFixed(2)}%`}
         colorScale={[
-          '#61F4DE',
-          '#63DFE4',
-          '#65CBE9',
-          '#68B6EF',
-          '#6AA1F4',
-          '#6AA1F4',
-          '#6C8DFA',
-          '#6E78FF',
+          '#FCB0F3',
+          '#E49BF0',
+          '#CC85EE',
+          '#B470EB',
+          '#9D5BE8',
+          '#8545E5',
+          '#6D30E3',
+          '#551AE0',
+          '#3D05DD',
         ]}
       />
       <VictoryLabel
