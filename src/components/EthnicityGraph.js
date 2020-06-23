@@ -16,7 +16,9 @@ function EthnicityGraph({ ethnicity }) {
     for (let [key, value] of Object.entries(data)) {
       if (value) {
         convertedData.push({ x: `${formatString(key)}`, y: value });
-        legendData.push({ name: `${formatString(key)}: ${(value * 100).toFixed(2)}%` });
+        legendData.push({
+          name: `${formatString(key)}: ${(value * 100).toFixed(2)}%`,
+        });
       }
     }
   })(ethnicity);
@@ -27,15 +29,15 @@ function EthnicityGraph({ ethnicity }) {
         <VictoryLegend
           standalone={false}
           colorScale={[
-            '#fa2d3e',
-            '#112cb7',
+            'white',
+            '#3D85DD',
             '#6e4e09',
-            '#a3fad4',
-            '#dd7620',
+            '#ec0fba',
+            'gray',
             '#8545E5',
             '#e6b900',
-            '#34650c',
-            '#3D85DD',
+            '#01b054',
+            '#fa2d3e',
           ]}
           x={5}
           y={40}
@@ -43,7 +45,7 @@ function EthnicityGraph({ ethnicity }) {
           title='Legend'
           centerTitle
           style={{
-            title: {fill: 'darkgray'},
+            title: { fill: 'darkgray' },
             labels: { fontSize: 4, fill: 'darkgray' },
           }}
           data={legendData}
@@ -59,15 +61,15 @@ function EthnicityGraph({ ethnicity }) {
           style={{ labels: { fontSize: 4, fill: 'darkgray' } }}
           labels={({ datum }) => `${(datum.y * 100).toFixed(2)}%`}
           colorScale={[
-            '#fa2d3e',
-            '#112cb7',
+            'white',
+            '#3D85DD',
             '#6e4e09',
-            '#a3fad4',
-            '#dd7620',
+            '#ec0fba',
+            'gray',
             '#8545E5',
             '#e6b900',
-            '#34650c',
-            '#3D85DD',
+            '#01b054',
+            '#fa2d3e',
           ]}
           padAngle={({ datum }) => datum.y * 10}
           cornerRadius={({ datum }) => datum.y * 5}
