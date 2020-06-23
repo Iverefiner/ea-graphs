@@ -17,8 +17,6 @@ function CostGraph({ cost }) {
     }
   }
 
-  console.log(convertedData.sort());
-
   return (
     <div>
       <VictoryChart
@@ -34,7 +32,11 @@ function CostGraph({ cost }) {
           text='Cost by Income Level'
         />
         <VictoryAxis />
-        <VictoryAxis dependentAxis tickFormat={(x) => `$${x / 1000}k`} tickCount={10}/>
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => `$${x / 1000}k`}
+          tickCount={10}
+        />
         <VictoryBar
           horizontal
           data={convertedData}

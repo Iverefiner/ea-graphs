@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryPie, VictoryLabel, VictoryLegend, VictoryChart } from 'victory';
+import { VictoryPie, VictoryLabel, VictoryLegend } from 'victory';
 
 function EthnicityGraph({ ethnicity }) {
   const convertedData = [];
@@ -31,8 +31,8 @@ function EthnicityGraph({ ethnicity }) {
           colorScale={[
             'white',
             '#3D85DD',
-            '#6e4e09',
             '#ec0fba',
+            '#6e4e09',
             'gray',
             '#8545E5',
             '#e6b900',
@@ -62,8 +62,8 @@ function EthnicityGraph({ ethnicity }) {
           colorScale={[
             'white',
             '#3D85DD',
-            '#6e4e09',
             '#ec0fba',
+            '#6e4e09',
             'gray',
             '#8545E5',
             '#e6b900',
