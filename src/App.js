@@ -7,6 +7,8 @@ import {
   CostGraph,
 } from './components/index';
 import axios from 'axios';
+// import {Fab}
+// import { AccessAlarm, ThreeDRotation } from '@material-ui/icons'
 
 function App() {
   const [schoolData, setSchoolData] = useState(null);
@@ -60,6 +62,19 @@ function App() {
           </>
         )}
       </header>
+      <Fab color="primary" aria-label="add">
+  <AddIcon />
+</Fab>
+<Fab color="secondary" aria-label="edit">
+  <EditIcon />
+</Fab>
+<Fab variant="extended">
+  <NavigationIcon className={classes.extendedIcon} />
+  Navigate
+</Fab>
+<Fab disabled aria-label="like">
+  <FavoriteIcon />
+</Fab>
     </div>
   );
 }
