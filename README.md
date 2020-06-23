@@ -1,1 +1,6 @@
+Data retrieved from api.data.gov on the University of Wisconsin-Madison rendered in graphs.
 
+- clone to your computer
+- yarn install
+- In App.css, replace API_KEY value with your api key
+- yarn start
