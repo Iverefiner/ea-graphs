@@ -7,8 +7,7 @@ import {
   CostGraph,
 } from './components/index';
 import axios from 'axios';
-// import {Fab}
-// import { AccessAlarm, ThreeDRotation } from '@material-ui/icons'
+import Button from '@material-ui/core/Button';
 
 function App() {
   const [schoolData, setSchoolData] = useState(null);
@@ -48,6 +47,17 @@ function App() {
                 schoolData.latest.student.enrollment.grad_12_month
               }
             />
+            <div>
+            <Button variant='contained' color='primary'>
+              Save Data
+            </Button>
+            <Button variant='contained' color='primary'>
+              Save as PDF
+            </Button>
+            <Button variant='contained' color='primary'>
+              Print
+            </Button>
+            </div>
             <ProgramPercentagesGraph
               programPercentages={
                 schoolData.latest.academics.program_percentage
@@ -62,19 +72,6 @@ function App() {
           </>
         )}
       </header>
-      <Fab color="primary" aria-label="add">
-  <AddIcon />
-</Fab>
-<Fab color="secondary" aria-label="edit">
-  <EditIcon />
-</Fab>
-<Fab variant="extended">
-  <NavigationIcon className={classes.extendedIcon} />
-  Navigate
-</Fab>
-<Fab disabled aria-label="like">
-  <FavoriteIcon />
-</Fab>
     </div>
   );
 }
