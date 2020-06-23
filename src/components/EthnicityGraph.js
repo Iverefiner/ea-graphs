@@ -58,8 +58,7 @@ function EthnicityGraph({ ethnicity }) {
           data={convertedData}
           innerRadius={68}
           labelRadius={160}
-          style={{ labels: { fontSize: 4, fill: 'darkgray' } }}
-          labels={({ datum }) => `${(datum.y * 100).toFixed(2)}%`}
+          labels={() => null}
           colorScale={[
             'white',
             '#3D85DD',
