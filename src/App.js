@@ -11,24 +11,27 @@ import axios from 'axios';
 function App() {
   const [schoolData, setSchoolData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const YOUR_API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    try {
-      setLoading(true);
-      axios
-        .get(
-          `https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=${YOUR_API_KEY}`
-        )
-        .then((res) => {
-          const data = res.data.results[0];
-          setSchoolData(data);
-          setLoading(false);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  }, [YOUR_API_KEY]);
+    const fetchData = () => {
+      try {
+        setLoading(true);
+        axios
+          .get(
+            `https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=${API_KEY}`
+          )
+          .then((res) => {
+            const data = res.data.results[0];
+            setSchoolData(data);
+            setLoading(false);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [API_KEY]);
 
   return (
     <div className='App'>
@@ -51,7 +54,9 @@ function App() {
             <EthnicityGraph
               ethnicity={schoolData.latest.student.demographics.race_ethnicity}
             />
-            <CostGraph cost={schoolData.latest.cost.net_price.public.by_income_level} />
+            <CostGraph
+              cost={schoolData.latest.cost.net_price.public.by_income_level}
+            />
           </>
         )}
       </header>

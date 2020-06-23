@@ -18,14 +18,13 @@ function ProgramPercentagesGraph({ programPercentages }) {
     // push into array
     for (let [key, value] of Object.entries(data)) {
       if (value > 0) {
-        convertedData.push({ x: `${formatString(key)}`, y: `${value}` });
+        convertedData.push({ x: `${formatString(key)}`, y: value });
       }
     }
   })(programPercentages);
 
-  console.log(convertedData);
   return (
-    <div className='graph'>
+    <div>
       <svg viewBox='0 0 400 400'>
         <VictoryPie
           standalone={false}
@@ -33,8 +32,8 @@ function ProgramPercentagesGraph({ programPercentages }) {
           height={400}
           data={convertedData}
           innerRadius={68}
-          labelRadius={160}
-          style={{ labels: { fontSize: 4, fill: 'beige', angle: 45 } }}
+          labelRadius={170}
+          style={{ labels: { fontSize: 3, fill: 'beige', angle: 45 } }}
           labels={({ datum }) => `${datum.x}: ${(datum.y * 100).toFixed(2)}%`}
           colorScale={[
             '#FCC44B',
@@ -64,6 +63,8 @@ function ProgramPercentagesGraph({ programPercentages }) {
             '#66B8E7',
             '#60B6F1',
           ]}
+          padAngle={({ datum }) => datum.y * 10}
+          cornerRadius={({ datum }) => datum.y * 5}
         />
         <VictoryLabel
           textAnchor='middle'
